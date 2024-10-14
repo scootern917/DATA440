@@ -104,15 +104,29 @@
 <body>
 
     <header>
-        <h1>Project 2</h1>
+        <h1>Project 2 Part 1: Gradient Boosting</h1>
     </header>
 
     <div class="container">
-        <section class="hero">
-
+    <h3>Intro to Gradient Boosting</h3>
+    <p>Gradient Boosting is a machine learning method mainly used for regression and classification. The method involves using an initial
+        model to make predictions, then taking the residuals from those predictions to improve the model. This is done by building a separate
+        model, or models, that predict the errors from the first model. This is iterated through a number of boosting steps, which tells us
+        how many times we will predict the residuals, using a set learning rate to achieve better predictions with each iteration. It is
+        assumed that as we add more models and boosting steps, our predictions for the residuals will decrease.
+    </p>
+    
+    <h3>Gradient Boosting Implementation</h3>
+    <p>In this project, we use Gradient Boosting to improve our predictions on the Lowess Class. 
+        <a href="https://github.com/scootern917/DATA440/blob/main/HW2/LowessClass.py" target="_blank">Here</a> is my Lowess class, designed for
+        locally weighted regression tasks, creating a smoothed line for visualizing the relationship between two variables. Because the Lowess
+        class approximates the least squares line nearly continuously, it is a relatively strong model on its own; however, the GradientBooster
+        class implemented <a href="https://github.com/scootern917/DATA440/blob/main/HW2/GradientBooster.py" target="_blank">here</a> is used to
+        further reduce mean squared error, yielding a more accurate model overall.
+        
+    </p>
 
             
-        </section>
     </div>
 
     <footer>
