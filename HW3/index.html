@@ -138,6 +138,7 @@
             <h2>SCAD, ElasticNet, and SqrtLasso Variable Selection & Implementation Using PyTorch</h2>
             <h4>Scooter Norton</h4>
             <br>
+            
             <h3>Overview</h3>
             <p>In this project, I wrote a class for Smoothly Clipped Absolute Deviation (SCAD), tested it on the concrete dataset,
                 and determined variable selection for the data using SCAD. I then generated random datasets with correated features,
@@ -145,7 +146,8 @@
                 Finally, I used the methods on quadratic interaction terms for the concrete dataset. I was able to determine the best
                 weights for the penalty function, assess ideal model size, and obtained MSEs through K-Fold cross-validation.
             </p>
-
+            <br>
+            
             <h3>Part 1: SCAD for variable selection and regularization</h3>
             <p>The class I wrote for SCAD can be found <a href="https://github.com/scootern917/DATA440/blob/main/HW3/SCAD.py" target="_blank">here.</a>
                 I loaded in the concrete dataset, scaled it, and used it to predict strength values for concrete. Based on those predictions, 
@@ -153,18 +155,27 @@
                 case, cement, slag, age, ash, and water were stronger for predicting strength, and superplastic, coarseagg, and fineagg were
                 weak predictors. I then created a manual grid search model (my SCAD class was not scikit compliant) to find the best values
                 for the SCAD hyperparameters lambda. The results can be found
-                <a href="https://github.com/scootern917/DATA440/blob/main/HW3/lambda_vals_pt1.png" target="_blank">here.</a>
+                <a href="https://github.com/scootern917/DATA440/blob/main/HW3/lambda_vals_pt1.png" target="_blank">here.</a> Based on this,
+                we can see that for the concrete dataset, it is best to use lambda <=1.5.
             </p>
+            <br>
 
+            <h3>Comparisons to ElasticNet and SqrtLasso using generated datasets with correlated features</h3>
+            <p>In part two, in addition to the SCAD class, I implemented two new classes, 
+                <a href="https://github.com/scootern917/DATA440/blob/main/HW3/OtherClasses.py" target="_blank">ElasticNet and SqrtLasso.</a>
+                I used a provided function, make_corrrelated_features, to create 200 datasets with 8 features each, with the
+                features having a correlation value of 0.9 (strong correlation). I then created a sparsity pattern (betastar) of my choosing,
+                with the intent to see which model most closely resembles the initial betastar. To do this, I scored each model using MSEs to
+                see overall accuracy, and then created a coefficient dataframe using those models. I then found the absolute deviation from
+                the initial betastar by subtracting each betastar value from each coefficient provided by the models. I then graphed the results,
+                which can be found <a href="https://github.com/scootern917/DATA440/blob/main/HW3/coeff_estimates_pt2.png" target="_blank">here.</a> 
+            </p>
+            <br>
 
-
-            <h3>ElasticNet and SqrtLasso</h3>
-            <p> <a href="https://github.com/scootern917/DATA440/blob/main/HW3/OtherClasses.py" target="_blank">here</a></p>
-
-
-
-            <h3>Implementation</h3>
-            <p> <a href="https://github.com/scootern917/DATA440/blob/main/HW3/implementation.ipynb" target="_blank">here</a></p>
+            <h3>Determining weights, penalties, model size, and MSEs using SCAD</h3>
+            <p> 
+                <a href="https://github.com/scootern917/DATA440/blob/main/HW3/implementation.ipynb" target="_blank">here</a>
+            </p>
 
         </section>
     </div>
