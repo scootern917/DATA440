@@ -162,8 +162,8 @@
             </p>
             <br>
 
-            <h3>Comparisons to ElasticNet and SqrtLasso using generated datasets with correlated features</h3>
-            <p>In part two, in addition to the SCAD class, I implemented two new classes, 
+            <h3>Part 2: Comparisons to ElasticNet and SqrtLasso using generated datasets with correlated features</h3>
+            <p>In this portion of the project, in addition to the SCAD class, I implemented two new classes, 
                 <a href="https://github.com/scootern917/DATA440/blob/main/HW3/OtherClasses.py" target="_blank">ElasticNet and SqrtLasso.</a>
                 I used a provided function, make_corrrelated_features, to create 200 datasets with 8 features each, with the
                 features having a correlation value of 0.9 (strong correlation). I then created a sparsity pattern (betastar) of my choosing,
@@ -176,13 +176,19 @@
             </p>
             <br>
 
-            <h3>Determining weights, penalties, model size, and MSEs using SCAD</h3>
-            <p>
-                <a href="https://github.com/scootern917/DATA440/blob/main/HW3/num_coeff_pt3.png" target="_blank">here</a>
+            <h3>Part 3: Determining weights, penalties, model size, and MSEs using SCAD</h3>
+            <p>In this part of the project, I started by changing the feature values of the concrete dataset to be quadratic. I scaled the data
+                and fitted it to tensors, before beginning my parameter search for lambda and a (SCAD hyperparams). After determining that the
+                the hyperparameter values had little impact on the model's performance, I fitted the model using the strongest learning rate I
+                found thorugh trial and error. I created a coefficient tensor to perform my K-Fold cross-validation. I then printed the scores
+                and best number of coefficients for each split in the cross-validation process.
+                <a href="https://github.com/scootern917/DATA440/blob/main/HW3/num_coeff_pt3.png" target="_blank">Here</a> are my results. From
+                this, we can see that 44 coefficients yielded the best performing model for each split. This means that when using quadratic
+                interaction terms on the concrete dataset, the best choice for variable selection using SCAD is 44 terms.
             </p>
             <br>
 
-            <p>Source code for SCAD class can be found <a href="https://andrewcharlesjones.github.io/journal/scad.html" target="_blank">here.</a>
+            <p>Source code for my SCAD class can be found <a href="https://andrewcharlesjones.github.io/journal/scad.html" target="_blank">here.</a>
             </p>
 
         </section>
