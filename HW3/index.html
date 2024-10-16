@@ -145,6 +145,8 @@
                 and compared SCAD's performance with that of ElasticNet and SqrtLasso based on a sparsity pattern (betastar) of my choosing.
                 Finally, I used the methods on quadratic interaction terms for the concrete dataset. I was able to determine the best
                 weights for the penalty function, assess ideal model size, and obtained MSEs through K-Fold cross-validation.
+                <a href="https://github.com/scootern917/DATA440/blob/main/HW3/implementation.ipynb" target="_blank">Here</a> is the notebook
+                where you can find my implementation.
             </p>
             <br>
             
@@ -168,13 +170,19 @@
                 with the intent to see which model most closely resembles the initial betastar. To do this, I scored each model using MSEs to
                 see overall accuracy, and then created a coefficient dataframe using those models. I then found the absolute deviation from
                 the initial betastar by subtracting each betastar value from each coefficient provided by the models. I then graphed the results,
-                which can be found <a href="https://github.com/scootern917/DATA440/blob/main/HW3/coeff_estimates_pt2.png" target="_blank">here.</a> 
+                which can be found <a href="https://github.com/scootern917/DATA440/blob/main/HW3/coeff_estimates_pt2.png" target="_blank">here.</a>
+                From this, we can see that SCAD and SqrtLasso performed similarly, with ElasticNet lagging behind. SCAD was more accurate when
+                the betastar value was non-zero, but was less accurate when betastar was zero.
             </p>
             <br>
 
             <h3>Determining weights, penalties, model size, and MSEs using SCAD</h3>
-            <p> 
-                <a href="https://github.com/scootern917/DATA440/blob/main/HW3/implementation.ipynb" target="_blank">here</a>
+            <p>
+                <a href="https://github.com/scootern917/DATA440/blob/main/HW3/num_coeff_pt3.png" target="_blank">here</a>
+            </p>
+            <br>
+
+            <p>Source code for SCAD class can be found <a href="https://andrewcharlesjones.github.io/journal/scad.html" target="_blank">here.</a>
             </p>
 
         </section>
