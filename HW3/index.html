@@ -135,13 +135,26 @@
 
     <div class="container">
         <section class="hero">
-            <h2>Variable Selection and PyTorch Implementation of SCAD, ElasticNet, and SqrtLasso</h2>
+            <h2>SCAD, ElasticNet, and SqrtLasso Variable Selection & Implementation Using PyTorch</h2>
             <h4>Scooter Norton</h4>
+            <br>
+            <h3>Overview</h3>
+            <p>In this project, I wrote a class for Smoothly Clipped Absolute Deviation (SCAD), tested it on the concrete dataset,
+                and determined variable selection for the data using SCAD. I then generated random datasets with correated features,
+                and compared SCAD's performance with that of ElasticNet and SqrtLasso based on a sparsity pattern (betastar) of my choosing.
+                Finally, I used the methods on quadratic interaction terms for the concrete dataset. I was able to determine the best
+                weights for the penalty function, assess ideal model size, and obtained MSEs through K-Fold cross-validation.
+            </p>
 
-
-
-            <h3>SCAD</h3>
-            <p> <a href="https://github.com/scootern917/DATA440/blob/main/HW3/SCAD.py" target="_blank">here</a></p>
+            <h3>Part 1: SCAD for variable selection and regularization</h3>
+            <p>The class I wrote for SCAD can be found <a href="https://github.com/scootern917/DATA440/blob/main/HW3/SCAD.py" target="_blank">here.</a>
+                I loaded in the concrete dataset, scaled it, and used it to predict strength values for concrete. Based on those predictions, 
+                I was able to determine the strong and weak predictors for strength by obtaining the coefficients for each feature. In this
+                case, cement, slag, age, ash, and water were stronger for predicting strength, and superplastic, coarseagg, and fineagg were
+                weak predictors. I then created a manual grid search model (my SCAD class was not scikit compliant) to find the best values
+                for the SCAD hyperparameters lambda. The results can be found
+                <a href="https://github.com/scootern917/DATA440/blob/main/HW3/lambda_vals_pt1.png" target="_blank">here.</a>
+            </p>
 
 
 
@@ -150,7 +163,7 @@
 
 
 
-            <h3>Group Work Distribution</h3>
+            <h3>Implementation</h3>
             <p> <a href="https://github.com/scootern917/DATA440/blob/main/HW3/implementation.ipynb" target="_blank">here</a></p>
 
         </section>
