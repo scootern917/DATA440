@@ -138,22 +138,44 @@
             <h2>SMOTE, ADASYN with FastKDE, and Normalizing Flows for Class Imbalance</h2>
             <h4>Scooter Norton</h4>
             <br>
+
+            <h3>Class Imbalance</h3>
+            <p>Class imbalance occurs when there is a large difference in size between two classes. When there is class imbalance, the model
+                may often have a strong bias towards the majority class. This can be seen in resulting confusion matrices; in a highly imbalanced
+                data set, the model may overpredict the majority class, while neglecting the minority class. This is problematic in cases where
+                false positives and false negatives can be harmful. To give one example, in a dataset comprised of cancer patients and non-cancer
+                patients, a simple model that doesn't account for class imbalance may yield many false negatives; in this case, that would mean
+                returning a negative result on a person who in fact has cancer. This is obviously not ideal, so there are several strategies used
+                to address these problems.
+            </p>
+            <h3>SMOTE</h3>
+            <p>Synthetic Minority Oversampling Technique (a.k.a. SMOTE), is a method that generates synthetic data for the minority class to
+                compensate for a class imbalance. It first identifies the minority class, then uses k-nearest neighbors within the same class to 
+                find the closest points in the space. It creates invisible line segments between nearby points of the same class, and then places 
+                points along that line to introduce new, yet realistic, data points into the grid. Those points are generated and added to the 
+                dataset until the minority class contains the same number of samples as the majority class.
+            </p>
             
-            <h3>Overview</h3>
+            <br>
+            <p>Adaptive Synthetic Sampling (a.k.a. ADASYN) is similar to SMOTE in that it generates synthetic data for the minority class. However,
+                instead of creating point in between neighboring minority class points, it calculates the proportion of majority class points that
+                are k-nearest neighbors to a given minority class point. It creates a density value to assign weights; minority class points with
+                more majority class neighbors are given greater weight. The greater the weight assigned to a point, the more points are created
+                nearby. Therefore, sparser regions of minority class points generate more synthetic minority class points.
+
+                FastKDE helps with ADASYN, as it is a kernel for density estimation. It generates a probability density function for each class in
+                the space, allowing ADASYN to more accurately identify sparse areas in the space. The best time to use ADASYN with FastKDE is when
+                the decision boundary for a dataset subject to class imbalance is complex.
+            </p>
+            
+            <br>
+            <p>
+            </p>
+
+
+            <br>
             <p><a href="https://github.com/scootern917/DATA440/blob/main/Homework4/class_imbalance.ipynb" target="_blank">Here</a> is the notebook
-                where you can find my implementation.
-            </p>
-            <br>
-            
-
-
-
-
-
-            </p>
-            <br>
-
-            <p>Source code for my SCAD class can be found <a href="https://andrewcharlesjones.github.io/journal/scad.html" target="_blank">here.</a>
+                where you can find my class imbalance implementation of SMOTE, ADASYN with FastKDE, and Normalizing Flows.
             </p>
 
         </section>
