@@ -157,6 +157,7 @@
             </p>
             
             <br>
+            <h3>ADASYN with FastKDE</h3>
             <p>Adaptive Synthetic Sampling (a.k.a. ADASYN) is similar to SMOTE in that it generates synthetic data for the minority class. However,
                 instead of creating point in between neighboring minority class points, it calculates the proportion of majority class points that
                 are k-nearest neighbors to a given minority class point. It creates a density value to assign weights; minority class points with
@@ -169,12 +170,23 @@
             </p>
             
             <br>
-            <p>
+            <h3>Normalizing Flows</h3>
+            <p>Normalizing Flows operate by mapping high-complexity, high-dimension data into a simpler space through invertible transformations.
+                It first seeks to understand the distribution of minority data in the space, providing a density estimation. This is useful when
+                the data has high dimensions, or the decision boundary for the classes is complex. Once the minority class distribution is learned,
+                the model uses a kernel (i.e. Gaussian) to map the distances between points. Using these distances and density estimations, the
+                model can generate synthetic data for the minority class in realistic positions. The new, synthetic data is then added to the
+                training set, allowing for the minority class to have the same representation in the dataset.
+
+                Normalizing flows are best used when relationships between classes may be non-linear or multimodal. This means the method is more
+                robust when considering different types of data sets. Additionally, the kernel will ensure that any newly created data will fall
+                within the initial distribution. The biggest drawbacks to Normalizing Flows are that their ability to handle high-dimensional data
+                comes at a computational cost, and they require more finesse/expertise to implement than simpler models such as SMOTE.
             </p>
 
 
             <br>
-            <p><a href="https://github.com/scootern917/DATA440/blob/main/Homework4/class_imbalance.ipynb" target="_blank">Here</a> is the notebook
+            <p><a href="https://github.com/scootern917/DATA440/blob/main/Homework4/class_imbalance.ipynb" target="_blank">Here is the notebook</a>
                 where you can find my class imbalance implementation of SMOTE, ADASYN with FastKDE, and Normalizing Flows.
             </p>
 
